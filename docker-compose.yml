@@ -1,0 +1,28 @@
+version: '3'
+services:
+
+  postgres:
+    container_name: postgres
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+
+  app:
+    container_name: app
+    build:
+      context: .
+      dockerfile: .docker/php/Dockerfile
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - postgres
+    volumes:
+      - .:/var/www/rcapp
+    ports:
+      - "9002:9003"
+
+volumes:
+  postgres:
+  app:
