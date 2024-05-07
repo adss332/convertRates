@@ -5,9 +5,12 @@ services:
     container_name: postgres
     image: postgres:16-alpine
     environment:
+      POSTGRES_DB: db
       POSTGRES_PASSWORD: postgres
     ports:
       - "5432:5432"
+    networks:
+      - pyha
 
   app:
     container_name: app
@@ -22,6 +25,12 @@ services:
       - .:/var/www/rcapp
     ports:
       - "9002:9003"
+    networks:
+      - pyha
+
+networks:
+  pyha:
+    driver: bridge
 
 volumes:
   postgres:

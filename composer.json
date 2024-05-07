@@ -7,12 +7,19 @@
         "php": ">=8.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-simplexml": "*",
+        "doctrine/doctrine-bundle": "^2",
+        "doctrine/doctrine-migrations-bundle": "^3.3",
         "doctrine/orm": "^3.1",
+        "litipk/php-bignumbers": "^0.8.6",
         "symfony/console": "7.0.*",
         "symfony/dotenv": "7.0.*",
         "symfony/flex": "^2",
         "symfony/framework-bundle": "7.0.*",
+        "symfony/http-client": "7.0.*",
+        "symfony/intl": "7.0.*",
         "symfony/runtime": "7.0.*",
+        "symfony/validator": "7.0.*",
         "symfony/yaml": "7.0.*"
     },
     "config": {
@@ -63,5 +70,9 @@
             "allow-contrib": false,
             "require": "7.0.*"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.1",
+        "symfony/maker-bundle": "*"
     }
 }
